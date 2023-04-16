@@ -29,6 +29,26 @@ function LinkedList() {
         },
         first: this.first,
         last: this.last,
+        [Symbol.iterator]: function () {
+            let currentNode = this.first;
+
+            return {
+                next() {
+                    if (currentNode === null) {
+                        return {
+                            done: true,
+                        };
+                    } else {
+                        const node = {
+                            done: false,
+                            value: currentNode.value,
+                        };
+                        currentNode = currentNode.next;
+                        return node;
+                    }
+                },
+            };
+        },
     };
 }
 
@@ -51,3 +71,7 @@ console.log(list.last.prev.prev.prev.next.value); // 4
 console.log(list.last.value); // 6
 console.log(list.last.prev.value); // 5
 console.log(list.last.prev.next.value); // 6
+
+for (const value of list) {
+    console.log(value);
+}
