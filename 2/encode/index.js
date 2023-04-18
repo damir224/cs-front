@@ -36,10 +36,10 @@ const encode = (array, schema) => {
             startPoint += bitAmount;
         }
         if (typeof element === 'string' && type === 'ascii') {
-            const firstAsciiSymbol = 'ab'.charCodeAt(0);
+            const firstAsciiSymbol = element.charCodeAt(0);
             convertToByteArray(firstAsciiSymbol, 8, byteArray, startPoint);
             startPoint += 8;
-            const secondAsciiSymbol = 'ab'.charCodeAt(1);
+            const secondAsciiSymbol = element.charCodeAt(1);
             convertToByteArray(secondAsciiSymbol, 8, byteArray, startPoint);
             startPoint += 8;
         }
