@@ -1,0 +1,19 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./node_modules/*", "*"]
+    },
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ESNext",
+    "types": [ "node", "jasmine" ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+  }
+}
