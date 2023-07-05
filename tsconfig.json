@@ -11,9 +11,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "ESNext",
-    "types": [ "node", "jasmine" ],
+    "types": [ "node" ],
     "typeRoots": [
       "./node_modules/@types"
     ],
+    "lib": ["ESNext"],
+    "module": "esnext",
   }
 }
