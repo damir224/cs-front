@@ -17,5 +17,7 @@
     ],
     "lib": ["ESNext"],
     "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
   }
 }
