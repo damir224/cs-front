@@ -47,23 +47,23 @@ const program = [
 // И вернет 0спроситты
 execute(program);
 
-function execute(program) {
-    let a = null;
+function execute(prog: typeof program) {
+    let a: number = 0;
     let i = 0;
     let condition = false;
-    console.log(program);
-    while (i < program.length) {
-        const instruction = program[i];
+    console.log(prog);
+    while (i < prog.length) {
+        const instruction = prog[i] as any as keyof typeof instructions;
         switch (instructions[instruction]) {
             case 0:
-                a = program[i + 1];
+                a = prog[i + 1] as any as number;
                 i += 1;
                 break;
             case 1:
                 console.log(a);
                 break;
             case 2:
-                if (a === program[i + 1]) {
+                if (a === prog[i + 1]) {
                     return 0;
                 } else {
                     i += 1;
@@ -76,7 +76,8 @@ function execute(program) {
                 a -= 1;
                 break;
             case 5:
-                i = program[i + 1] - 1;
+                let curA = prog[i + 1] as any as number;
+                i = curA - 1;
                 break;
 
             default:
