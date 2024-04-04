@@ -106,14 +106,21 @@ test.describe('test Vector class', () => {
 
     test('iterator', (t) => {
         const vec = new Vector(Int32Array, { capacity: 1 });
-
+        const iteratorValuesData = [1, 2, 3];
         const i = vec.values();
-        vec.push(1);
-        vec.push(2);
-        vec.push(3);
-        console.log(i.next()); // {done: false, value: 1}
-        console.log(i.next()); // {done: false, value: 2}
-        console.log(i.next()); // {done: false, value: 3}
-        console.log(i.next()); // {done: true, value: undefined}
+        iteratorValuesData.forEach((value) => vec.push(value));
+
+        const iteratorValues = [];
+        let done = false;
+        while (done === false) {
+            const node = i.next();
+            if (node.done) {
+                done = true;
+            } else {
+                iteratorValues.push(node.value);
+            }
+        }
+
+        assert.deepEqual(iteratorValues, iteratorValuesData);
     });
 });
