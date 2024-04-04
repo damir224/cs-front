@@ -26,7 +26,6 @@ class Vector<T extends TypedArrayType> {
     }
     pop() {
         const currentValue = this.buffer[--this.length];
-        // this.buffer[--this.length] = 0;
         return currentValue;
     }
     shrinkToFit() {
