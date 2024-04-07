@@ -79,13 +79,20 @@ test.describe('test Vector class', () => {
         assert.strictEqual(vector.push(41), 4); // 4
         assert.strictEqual(vector.push(5), 5); // 5 Увеличение буфера
 
+        assert.deepEqual(
+            Array.from(vector.buffer),
+            [11, 21, 31, 41, 5, 0, 0, 0]
+        );
+
         assert.strictEqual(vector.capacity, 8); // 8
         assert.strictEqual(vector.length, 5); // 5
     });
 
     test('pop method', (t) => {
         assert.strictEqual(vector.pop(), 5); // Удаляет с конца, возвращает удаленный элемент - 5
+        assert.strictEqual(vector.pop(), 41); // Удаляет с конца, возвращает удаленный элемент - 41
         assert.strictEqual(vector.capacity, 8); // 8
+        assert.strictEqual(vector.push(41), 4); // 4
     });
 
     test('shrinkToFit method', (t) => {
